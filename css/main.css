@@ -5,13 +5,40 @@ body {
     background-color: #222;
 }
 
+nav {
+    width: 100%;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav > ul {
+    width: 50%;
+    list-style: none;
+    padding: 0;
+    margin: auto;
+}
+
+nav > ul > li {
+    display: inline-block;
+    color: whitesmoke;
+}
+
+nav > ul > li:hover {
+    color: red;
+}
+
 footer {
-    background-color: #333;
     color: whitesmoke;
     width: 100%;
-    text-align: center;
     position: absolute;
+    text-align: center;
     bottom: 0;
+}
+
+span#menuDownArrow {
+    font-size: 0.5em;
 }
 
 div#mainContent {
@@ -21,13 +48,13 @@ div#mainContent {
     text-align: center;
     font-size: 5em;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 2%;
     background-color: #FFF;
 }
 
 div#messageContainer {
     width: 40%;
-    height: 15%;
+    height: 5%;
     margin-top: 2%;
     font-size: 2em;
     color: #DDD;
@@ -53,9 +80,9 @@ li.answerListItem {
     display: inline-block;
     width: 20%;
     height: 100%;
-    margin-left: 2.1%;
+    margin-left: 2.0%;
     font-size: 2em;
-    margin-right: 2.1%;
+    margin-right: 2.0%;
     text-align: center;
     background-color: #DDD;
     border-radius: 5px;
