@@ -1,0 +1,39 @@
+html, 
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+}
+
+div#mainContent {
+    width: 40%;
+    height: 50%;
+    border-radius: 5%;
+    margin: auto;
+    margin-top: 5%;
+    background-color: #FFF;
+}
+
+div#answerListContainer {
+    width: 40%;
+    height: 20%;
+    margin: auto;
+}
+
+ul#answerList {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+li.answerListItem {
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    margin-left: 2.1%;
+    margin-right: 2.1%;
+    text-align: center;
+    background-color: #DDD;
+    border-radius: 5px;
+}
