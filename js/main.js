@@ -22,14 +22,15 @@ $(document).ready(function() {
     function turnChoiceRed(answerChoiceID) {
         $('#' + answerChoiceID).css({
             'background-color' : 'red',
-            'font-color' : 'WhiteSmoke'
+            'color' : '#EEE',
+            'opacity' : '.5'
         });
     }
     
     function turnChoiceGreen(answerChoiceID) {
         $('#' + answerChoiceID).css({
             'background-color' : 'green',
-            'font-color' : 'WhiteSmoke'
+            'color' : '#EEE',
         });
     }
     
