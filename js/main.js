@@ -1,9 +1,4 @@
 $(document).ready(function() {
-    var numberOfAnswers = 4;
-    var correctAnswer;
-    var questionAlphabet;
-    var answerAlphabet;
-
     var romaji = [
         "a", "i", "u", "e", "o",
         "ka", "ki", "ku", "ke", "ko",
@@ -91,12 +86,18 @@ $(document).ready(function() {
         "ピャ", "ピュ", "ピョ"
     ];
 
-    function setQuestionAlphabet(setAlphabet) {
-        questionAlphabet = setAlphabet;
+
+    var numberOfAnswers = 4;
+    var correctAnswer;
+    var questionAlphabet = hiragana;
+    var answerAlphabet = romaji;
+
+    function setQuestionAlphabet(alphabet) {
+        questionAlphabet = alphabet;
     }
 
-    function setAnswerAlphabet(setAlphabet) {
-        answerAlphabet = setAlphabet;
+    function setAnswerAlphabet(alphabet) {
+        answerAlphabet = alphabet;
     }
 
     function renderQuestion() {
@@ -135,7 +136,7 @@ $(document).ready(function() {
     function generateArrayOfAnswers(characterIndex) {
         var iterator = 0;
         var answerArray = [];
-        answersArray.push(answerAlphabet[characterIndex]);
+        answerArray.push(answerAlphabet[characterIndex]);
 
         while (iterator < (numberOfAnswers - 1)) {
             randomWrongAnswersIndex = Math.floor(answerAlphabet.length * Math.random());
@@ -236,4 +237,7 @@ $(document).ready(function() {
         var answerID = $(this).attr('id');
         validateAnswerChoice(answer, answerID);
     });
+
+    // Kick it off
+    populateQuestionAnswerFields();
 });
