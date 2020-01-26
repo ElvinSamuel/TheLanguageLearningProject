@@ -10,10 +10,6 @@ $(document).ready(function() {
         question = $('div#mainContent').text();
         return (answer === question);
     }
-    
-    function disableAnswerChoice(answerChoiceID) {
-        $(answerChoiceID).prop( "disabled", true );
-    }
 
     function updateMessage(isCorrect) {
         if (isCorrect) {
