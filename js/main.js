@@ -91,6 +91,7 @@ $(document).ready(function() {
     var correctAnswer;
     var questionAlphabet = hiragana;
     var answerAlphabet = romaji;
+    var timeUntilNextQuestion = 2000;
 
     function setQuestionAlphabet(alphabet) {
         questionAlphabet = alphabet;
@@ -118,6 +119,11 @@ $(document).ready(function() {
         $('#answer_d').text(answerArray[3]);
     }
 
+    /**
+     *  Get the question, correct answer, and list of answer options
+     * 
+     * @returns {Object[]}
+     */
     function getQuestionAndAnswers() {
         var characterIndex = Math.floor(questionAlphabet.length * Math.random());
         var question = questionAlphabet[characterIndex];
@@ -132,6 +138,12 @@ $(document).ready(function() {
             'arrayOfAnswers' : shuffledAnswers
         };
     }
+
+    /**
+     * Generate an array of answers, including the correct answer.
+     * 
+     * @param {Object[]} characterIndex 
+     */
 
     function generateArrayOfAnswers(characterIndex) {
         var iterator = 0;
@@ -154,7 +166,9 @@ $(document).ready(function() {
     }
 
     /**
-     * ShuffleAnswers -- logic borrowed from Chris Ferdinandi's website GoMakeThings.com
+     * Shuffle the answer order. 
+     * 
+     * (logic borrowed from Chris Ferdinandi's website GoMakeThings.com)
      * 
      * @param {Object[]} arrayOfAnswers 
      * @returns {Object[]}
@@ -177,18 +191,27 @@ $(document).ready(function() {
 
         return arrayOfAnswers;
     }
-
-    /* Current Default - 3 Seconds */
+    
     function moveToNextQuestion() {
         setTimeout( function() {
             renderQuestion();
-        }, 3000)
+        }, timeUntilNextQuestion)
     }
 
+    /**
+     * Determine if the correct answer is chosen.
+     * @param {String} answer 
+     * @return {boolean}
+     */
     function isCorrect(answer) {
         return( answer === correctAnswer );
     }
 
+    /**
+     * Update the container message text.
+     * 
+     * @param {boolean} isCorrect 
+     */
     function updateMessage(isCorrect) {
         if (isCorrect) {
             $('#messageContainer').html('<b>Good Work!</b>');
@@ -197,6 +220,11 @@ $(document).ready(function() {
         }
     }
     
+    /**
+     * Change the answer choice to red & make it semi-transparent.
+     * 
+     * @param {String} answerChoiceID 
+     */
     function turnChoiceRed(answerChoiceID) {
         $('#' + answerChoiceID).css({
             'background-color' : 'red',
@@ -204,7 +232,12 @@ $(document).ready(function() {
             'opacity' : '.5'
         });
     }
-    
+
+    /**
+     * Change the answer choice to green.
+     * 
+     * @param {String} answerChoiceID 
+     */
     function turnChoiceGreen(answerChoiceID) {
         $('#' + answerChoiceID).css({
             'background-color' : 'green',
@@ -212,6 +245,11 @@ $(document).ready(function() {
         });
     }
 
+    /**
+     * Reset the answer choice colors.
+     * 
+     * @param {String} answerChoiceID 
+     */
     function resetAnswerColors() {
         $("li[id^='answer_']").css({
             'background-color' : '#DDD',
@@ -220,6 +258,14 @@ $(document).ready(function() {
         })
     }
     
+    /**
+     * When a user selects an answer choice this function controls the 
+     * functions that update the interface. The container color change
+     * and messaging happen here.
+     * 
+     * @param {String} answer user selected answer
+     * @param {String} answerChoiceID id of the answer choice
+     */
     function validateAnswerChoice(answer, answerChoiceID) {
         if ( isCorrect(answer) ) {
             turnChoiceGreen(answerChoiceID);
@@ -238,6 +284,6 @@ $(document).ready(function() {
         validateAnswerChoice(answer, answerID);
     });
 
-    // Kick it off
+    // When the application fully loads, start off with a random question.
     populateQuestionAnswerFields();
 });
