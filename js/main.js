@@ -14,6 +14,14 @@ $(document).ready(function() {
     function disableAnswerChoice(answerChoiceID) {
         $(answerChoiceID).prop( "disabled", true );
     }
+
+    function updateMessage(isCorrect) {
+        if (isCorrect) {
+            $('#messageContainer').html('<b>Good Work!</b>');
+        } else {
+            $('#messageContainer').html('<b>Keep Going!</b>');
+        }
+    }
     
     function turnChoiceRed(answerChoiceID) {
         $('#' + answerChoiceID).css({
@@ -32,8 +40,10 @@ $(document).ready(function() {
     function validateAnswerChoice(answer, answerChoiceID) {
         if ( isCorrect(answer) ) {
             turnChoiceGreen(answerChoiceID);
+            updateMessage(true);
         } else {
             turnChoiceRed(answerChoiceID);
+            updateMessage(false);
         }
     }
 });
