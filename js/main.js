@@ -1,11 +1,27 @@
 $(document).ready(function() {
-    /* Attach Event Handler to every answer choice */
-    $('li.answerListItem').click(function() {
-        answer = $(this).text();
-        answerID = $(this).attr('id');
-        validateAnswerChoice(answer, answerID);
-    });
-    
+    var sampleData = {
+        'A' : ['A', 'B', 'C', 'D'],
+        'B' : ['E', 'F', 'G', 'H'],
+        'C' : ['I', 'J', 'K', 'L'],
+        'D' : ['M', 'N', 'O', 'P']
+    }
+
+    function getRandomQuestion() {
+        var allKeys = Object.keys(sampleData);
+        var randomKey = allKeys[allKeys.length * Math.random() << 0];
+        var randomKeyData =  sampleData[randomKey];
+
+        // $('#mainContent').text(randomkey);
+        alert(randomKey);
+    }
+
+    /* Current Default - 3 Seconds */
+    function moveToNextQuestion() {
+        setTimeout( function() {
+            getRandomQuestion();
+        }, 3000)
+    }
+
     function isCorrect(answer) {
         question = $('div#mainContent').text();
         return (answer === question);
@@ -38,9 +54,17 @@ $(document).ready(function() {
         if ( isCorrect(answer) ) {
             turnChoiceGreen(answerChoiceID);
             updateMessage(true);
+            moveToNextQuestion();
         } else {
             turnChoiceRed(answerChoiceID);
             updateMessage(false);
         }
     }
+
+    /* Attach Event Handler to every answer choice */
+    $('li.answerListItem').click(function() {
+        var answer = $(this).text();
+        var answerID = $(this).attr('id');
+        validateAnswerChoice(answer, answerID);
+    });
 });
