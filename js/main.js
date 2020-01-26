@@ -6,19 +6,26 @@ $(document).ready(function() {
         'D' : ['M', 'N', 'O', 'P']
     }
 
-    function getRandomQuestion() {
+    function renderQuestion() {
+        var questionAndAnswers = getRandomQuestionAndAnswersData();
+        alert(questionAndAnswers['question']);
+    }
+
+    function getRandomQuestionAndAnswersData() {
         var allKeys = Object.keys(sampleData);
         var randomKey = allKeys[allKeys.length * Math.random() << 0];
         var randomKeyData =  sampleData[randomKey];
 
-        // $('#mainContent').text(randomkey);
-        alert(randomKey);
+        return {
+            'question' : randomKey,
+            'answersArray' : randomKeyData
+        };
     }
 
     /* Current Default - 3 Seconds */
     function moveToNextQuestion() {
         setTimeout( function() {
-            getRandomQuestion();
+            renderQuestion();
         }, 3000)
     }
 
