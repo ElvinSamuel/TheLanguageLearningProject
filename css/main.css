@@ -25,6 +25,10 @@ nav > ul > li {
     color: whitesmoke;
 }
 
+label {
+    color: white;
+}
+
 nav > ul > li:hover {
     color: red;
 }

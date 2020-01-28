@@ -106,8 +106,8 @@ $(document).ready(function() {
         answerAlphabet = alphabet;
     }
 
-    $('#selectLanguage').on("change", function(){
-        var alphabet = $("#selectLanguage option:selected").val();
+    $('#questionLanguage,#answerLanguage').on("change", function(){
+        var alphabet = $("#questionLanguage option:selected").val();
         setQuestionAlphabet(listOfAllAlphabets[alphabet]);
         populateQuestionAnswerFields();
     });
