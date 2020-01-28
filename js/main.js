@@ -107,7 +107,7 @@ $(document).ready(function() {
     }
 
     $('#selectLanguage').on("change", function(){
-        var alphabet = $("#selectLanguage option:selected").text();
+        var alphabet = $("#selectLanguage option:selected").val();
         setQuestionAlphabet(listOfAllAlphabets[alphabet]);
         populateQuestionAnswerFields();
     });
