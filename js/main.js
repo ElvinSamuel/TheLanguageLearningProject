@@ -92,6 +92,11 @@ $(document).ready(function() {
     var questionAlphabet = hiragana;
     var answerAlphabet = romaji;
     var timeUntilNextQuestion = 2000;
+    var listOfAllAlphabets = {
+        "Hiragana" : hiragana,
+        "Katakana" : katakana,
+        "Romaji" : romaji
+    };
 
     function setQuestionAlphabet(alphabet) {
         questionAlphabet = alphabet;
@@ -100,6 +105,12 @@ $(document).ready(function() {
     function setAnswerAlphabet(alphabet) {
         answerAlphabet = alphabet;
     }
+
+    $('#selectLanguage').on("change", function(){
+        var alphabet = $("#selectLanguage option:selected").text();
+        setQuestionAlphabet(listOfAllAlphabets[alphabet]);
+        populateQuestionAnswerFields();
+    });
 
     function renderQuestion() {
         populateQuestionAnswerFields();
