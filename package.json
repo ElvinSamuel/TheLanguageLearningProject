@@ -1,0 +1,28 @@
+{
+  "name": "thelanguagelearningproject",
+  "version": "1.0.0",
+  "description": "Language learning made easy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElvinSamuel/TheLanguageLearningProject.git"
+  },
+  "keywords": [
+    "Language",
+    "Learning",
+    "Node",
+    "JS",
+    "JavaScript",
+    "Japanese",
+    "Korean"
+  ],
+  "author": "Elvin M. Samuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElvinSamuel/TheLanguageLearningProject/issues"
+  },
+  "homepage": "https://github.com/ElvinSamuel/TheLanguageLearningProject#readme"
+}
