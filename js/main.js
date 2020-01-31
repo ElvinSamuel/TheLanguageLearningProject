@@ -140,11 +140,17 @@ $(document).ready(function() {
         answerAlphabet = alphabet;
     }
 
-    $('#questionLanguage,#answerLanguage').on("change", function(){
-        var alphabet = $("#questionLanguage option:selected").val();
+    $('#questionLanguage').on("change", function(){
+        var alphabet = $(this).val();
         setQuestionAlphabet(listOfAllAlphabets[alphabet]);
         populateQuestionAnswerFields();
     });
+
+    $('#answerLanguage').on("change", function(){
+        var alphabet = $(this).val();
+        setAnswerAlphabet(listOfAllAlphabets[alphabet]);
+        populateQuestionAnswerFields();
+    })
 
     function renderQuestion() {
         populateQuestionAnswerFields();
