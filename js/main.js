@@ -154,6 +154,7 @@ $(document).ready(function() {
 
     function renderQuestion() {
         populateQuestionAnswerFields();
+        hideMessage();
         resetAnswerColors();
     }
 
@@ -162,6 +163,7 @@ $(document).ready(function() {
         var question = questionAndAnswers['question'];
         correctAnswer = questionAndAnswers['correctAnswer'];
         var answerArray = questionAndAnswers['arrayOfAnswers'];
+        hideMessage();
 
         $('#mainContent').text(question);
         $('#answer_a').text(answerArray[0]);
@@ -264,11 +266,20 @@ $(document).ready(function() {
      * @param {boolean} isCorrect 
      */
     function updateMessage(isCorrect) {
+        showMessage();
         if (isCorrect) {
             $('#messageContainer').html('<b>Good Work!</b>');
         } else {
             $('#messageContainer').html('<b>Keep Going!</b>');
         }
+    }
+    
+    function showMessage() {
+        $('#messageContainer').show();
+    }
+
+    function hideMessage() {
+        $('#messageContainer').hide();
     }
     
     /**
