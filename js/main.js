@@ -268,7 +268,7 @@ $(document).ready(function() {
     function updateMessage(isCorrect) {
         showMessage();
         if (isCorrect) {
-            $('#messageContainer').html('<b>Good Work!</b>');
+            $('#messageContainer').html('<b>Correct!</b>');
         } else {
             $('#messageContainer').html('<b>Keep Going!</b>');
         }
@@ -288,11 +288,7 @@ $(document).ready(function() {
      * @param {String} answerChoiceID 
      */
     function turnChoiceRed(answerChoiceID) {
-        $('#' + answerChoiceID).css({
-            'background-color' : 'red',
-            'color' : '#EEE',
-            'opacity' : '.5'
-        });
+        $('#' + answerChoiceID).addClass('incorrectAnswer');
     }
 
     /**
@@ -301,10 +297,7 @@ $(document).ready(function() {
      * @param {String} answerChoiceID 
      */
     function turnChoiceGreen(answerChoiceID) {
-        $('#' + answerChoiceID).css({
-            'background-color' : 'green',
-            'color' : '#EEE',
-        });
+        $('#' + answerChoiceID).addClass('correctAnswer');
     }
 
     /**
@@ -313,11 +306,7 @@ $(document).ready(function() {
      * @param {String} answerChoiceID 
      */
     function resetAnswerColors() {
-        $("li[id^='answer_']").css({
-            'background-color' : '#DDD',
-            'color' : '#000',
-            'opacity' : '1.0'
-        })
+        $("li[id^='answer_']").removeClass('correctAnswer incorrectAnswer');
     }
     
     /**
