@@ -112,3 +112,27 @@ li.correctAnswer {
     background-color: #7A907A;
     color: #F8F5DC;
 }
+
+@media only screen and (min-width: 960px) {
+    div#mainContent,
+    div#messageContainer,
+    div#answerListContainer {
+        width: 40%;
+    }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 959px){
+    div#mainContent,
+    div#messageContainer,
+    div#answerListContainer {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 639px) {
+    div#mainContent,
+    div#messageContainer,
+    div#answerListContainer {
+        width: 100%;
+    }
+}
