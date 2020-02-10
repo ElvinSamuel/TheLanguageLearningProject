@@ -56,7 +56,7 @@ div#mainContent {
     border: 3px solid #111111;
     border-radius: 5%;
     text-align: center;
-    font-size: 12em;
+    font-size: 25vw;
     margin: auto;
     margin-top: 2%;
     background-color: #F8F5DC;
@@ -65,19 +65,29 @@ div#mainContent {
 
 div#messageContainer {
     width: 40%;
-    height: 5%;
-    font-size: 2em;
+    font-size: 5vw;
     color: #DDD;
     background: #7A907A;
     border-radius: 10px;
+    padding: 0;
+    padding-top: 10px;
     margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
     text-align: center;
+}
+
+div#messageContainer > p {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 div#answerListContainer {
     width: 40%;
     height: 20%;
     margin: auto;
+    margin-top: 0;
 }
 
 ul#answerList {
@@ -93,7 +103,7 @@ li.answerListItem {
     width: 18%;
     height: 100%;
     margin-left: 2.0%;
-    font-size: 2em;
+    font-size: 10vw;
     margin-right: 2.0%;
     text-align: center;
     background-color: #F8F5DC;
@@ -113,7 +123,7 @@ li.correctAnswer {
     color: #F8F5DC;
 }
 
-@media only screen and (min-width: 960px) {
+@media screen and (min-device-width: 960px) {
     div#mainContent,
     div#messageContainer,
     div#answerListContainer {
@@ -121,18 +131,39 @@ li.correctAnswer {
     }
 }
 
-@media only screen and (min-width: 640px) and (max-width: 959px){
+@media screen and (min-device-width: 640px) and (max-device-width: 959px){
     div#mainContent,
     div#messageContainer,
     div#answerListContainer {
         width: 60%;
     }
+
+    div#mainContent {
+        height: 30%;
+    }
+
+    div#answerListContainer {
+        height: 10%;
+    }
+
+    li.answerListItem {
+        font-size: 7vw;
+    }
 }
 
-@media only screen and (min-width: 300px) and (max-width: 639px) {
+@media screen and (min-device-width: 300px) and (max-device-width: 639px) {
     div#mainContent,
     div#messageContainer,
     div#answerListContainer {
-        width: 100%;
+        width: 95%;
+        padding: 0;
+    }
+
+    div#mainContent {
+        height: 30%;
+    }
+
+    div#answerListContainer {
+        height: 10%;
     }
 }

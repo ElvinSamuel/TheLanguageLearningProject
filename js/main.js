@@ -268,9 +268,9 @@ $(document).ready(function() {
     function updateMessage(isCorrect) {
         showMessage();
         if (isCorrect) {
-            $('#messageContainer').html('<b>Correct!</b>');
+            $('#messageContainer > p').html('<b>Correct!</b>');
         } else {
-            $('#messageContainer').html('<b>Keep Going!</b>');
+            $('#messageContainer > p').html('<b>Keep Going!</b>');
         }
     }
     
